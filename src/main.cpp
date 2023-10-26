@@ -2,6 +2,7 @@
 
 #include "ac_cli.h"
 #include "ac_json.h"
+#include "ac_cmd.h"
 
 using namespace std;
 
@@ -12,17 +13,17 @@ int main(int argc, char** argv) {
 
     ac_cli_CONFIG globalConfig = ac_json_parseFile("./asciicam.global.config.json");
 
-    
-
     if(!globalConfig.status){
-        cout<<"ERR: Unable To Parse The Global Config `JSON` file"<<endl
-            <<"ERR: ./asciicam.global.config.json"<<endl;
+        cerr<<"ERR: Unable To Parse The Global Config `JSON` file"<<
+        endl<<"ERR: ./asciicam.global.config.json"<<endl;
         return 1;
     }
 
-    if(argc > 1){
-        cout<<argv<<endl;    
+    if(argc > 1 && !ac_cli_setParameters(argv, &globalConfig)){
+        cout<<"WAR: Unable To Parse Some Parameters"<<endl;
     }
+
+    ac_cmd_renderLoop(globalConfig);
 
     getchar();
     return 0;

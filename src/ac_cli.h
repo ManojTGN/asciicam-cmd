@@ -1,6 +1,8 @@
 #ifndef CLI_H
 #define CLI_H
 
+#include <map>
+#include <vector>
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -27,7 +29,12 @@ typedef struct config{
     char keyPause = 32;
     char keyScreenshot = 97;
 
-    string fillModes[MAX_FILLMODES] = {"","","",""};
+    string fillModes[MAX_FILLMODES] = {
+        "Ñ@#W$9876543210?!abc;:+=-,._ ",
+        ":$#$:   \"4b. ':.",
+        "██▓▓▒▒░░ ",
+        "Mnx:.. "
+    };
     int fillModesSize = 4;
     int fillMode = 0;
 
@@ -36,7 +43,22 @@ typedef struct config{
 
 } ac_cli_CONFIG;
 
+static map<string, string> ac_cli_CONFIG_TYPE = {
+    {"camera", "i"},
+    {"cameraDelay", "i"},
+    {"fps", "i"},
+    {"fpsDisplay", "b"},
+    {"fontDir", "s"},
+    {"fontSize", "i"},
+    {"keyExit", "c"},
+    {"keyPause", "c"},
+    {"keyScreenshot", "c"},
+    {"fillModes", "a"},
+    {"fillMode", "i"}
+};
+
 bool ac_cli_isGlobalConfigExist(); /* Returns TRUE if Global Config File Exists else FALSE */
 ac_cli_CONFIG ac_cli_createGlobalConfig(bool force = true);  /* Create Global Config File and returns TRUE if created else FALSE */
+bool ac_cli_setParameters(char **argv, ac_cli_CONFIG *config);
 
 #endif /* CLI_H */
