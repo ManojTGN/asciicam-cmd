@@ -34,7 +34,7 @@ ScreenBuffer ac_cmd_createScreenBuffer(int width, int height, int writeAt_X, int
         GetCurrentConsoleFontEx(sb.hConsole, FALSE, &fontInfo);
         wcscpy(fontInfo.FaceName, globalConfig.font);
         
-        fontInfo.dwFontSize.X = fontInfo.dwFontSize.Y = 8;
+        fontInfo.dwFontSize.X = fontInfo.dwFontSize.Y = globalConfig.fontSize;
         SetCurrentConsoleFontEx(sb.hConsole, FALSE, &fontInfo); 
     }
 
@@ -93,12 +93,14 @@ void ac_cmd_renderLoop(ac_cli_CONFIG globalConfig){
     globalConfig.camera = 1;
     globalConfig.fillMode = 3;
     globalConfig.font = L"Jetbrain Mono Thin";
+    globalConfig.fontSize = 12;
     globalConfig.fps = 60;
+    globalConfig.fpsDisplay = false;
 
     cv::VideoCapture vCapture(globalConfig.camera);
     //@todo: add resize to config to have customized resize value
-    vCapture.set(cv::CAP_PROP_FRAME_WIDTH, 40/*vCapture.get(cv::CAP_PROP_FRAME_WIDTH)*.05*/);
-    vCapture.set(cv::CAP_PROP_FRAME_HEIGHT, 40/*vCapture.get(cv::CAP_PROP_FRAME_HEIGHT)*.05*/);
+    vCapture.set(cv::CAP_PROP_FRAME_WIDTH, 5/*vCapture.get(cv::CAP_PROP_FRAME_WIDTH)*.05*/);
+    vCapture.set(cv::CAP_PROP_FRAME_HEIGHT,5/*vCapture.get(cv::CAP_PROP_FRAME_HEIGHT)*.05*/);
 
     ScreenBuffer sb = ac_cmd_createScreenBuffer( vCapture.get(cv::CAP_PROP_FRAME_WIDTH),vCapture.get(cv::CAP_PROP_FRAME_HEIGHT), 0, 0, globalConfig);
     ac_cmd_setScreenActive(sb);
