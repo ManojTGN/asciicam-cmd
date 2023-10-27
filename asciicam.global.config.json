@@ -5,18 +5,18 @@
 	"fps":60,         "//":"Max Fps can be reached / maintained",
 	"fpsDisplay":true,"//":"Show Fps",
 
-	"fontDir":" ",     "//":"TTF (or) OTF supported",
+	"font":"consolas",        "//":"Installed Font Name",
 	"fontSize":16,    "//":"Adjust according to your screen",
 
-	"keyExit":"�",    "//":"Exit Key       'q'",
+	"keyExit":"�",    "//":"Exit Key       'q'",
 	"keyPause":" ",    "//":"Pause Key      'SPACE'",
 	"keyScreenshot":"a","//":"Screenshot Key 'a'",
 
 	"fillModes":[
-		"",
-		"",
-		"",
-		""
+		"Ñ@#W$9876543210?!abc;:+=-,._ ",
+		":$#$:   \"4b. ':.",
+		"██▓▓▒▒░░ ",
+		"Mnx:.. "
 	],
 	"fillMode":0,    "//":"Selected Fill Mode From The `fillModes` array [0-n]",
 
