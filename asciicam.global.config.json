@@ -1,0 +1,24 @@
+{
+	"camera":0,       "//":"Camera 0 (default cam) [0-n]",
+	"cameraDelay":0,  "//":"Camera Frames Delay (low end user)",
+
+	"fps":60,         "//":"Max Fps can be reached / maintained",
+	"fpsDisplay":true,"//":"Show Fps",
+
+	"fontDir":" ",     "//":"TTF (or) OTF supported",
+	"fontSize":16,    "//":"Adjust according to your screen",
+
+	"keyExit":"…",    "//":"Exit Key       'q'",
+	"keyPause":" ",    "//":"Pause Key      'SPACE'",
+	"keyScreenshot":"a","//":"Screenshot Key 'a'",
+
+	"fillModes":[
+		"",
+		"",
+		"",
+		""
+	],
+	"fillMode":0,    "//":"Selected Fill Mode From The `fillModes` array [0-n]",
+
+	"extends":{}
+}

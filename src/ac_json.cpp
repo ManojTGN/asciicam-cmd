@@ -21,12 +21,15 @@ ac_cli_CONFIG ac_json_parseFile(string fileDir){
 
 string ac_json_parseStruct(ac_cli_CONFIG _struct, bool _isExtends){
 
+    std::wstring wStr(1, *_struct.font);
+    std::string fontName(wStr.begin(), wStr.end());
+
     string parsedString = 
         "{\n\t\"camera\":"+to_string(_struct.camera)+","+(!_isExtends?"       \"//\":\"Camera 0 (default cam) [0-n]\",":"")+"\n\t"+
         "\"cameraDelay\":"+to_string(_struct.cameraDelay)+","+(!_isExtends?"  \"//\":\"Camera Frames Delay (low end user)\",":"")+"\n\n\t"+
         "\"fps\":"+to_string(_struct.fps)+","+(!_isExtends?"         \"//\":\"Max Fps can be reached / maintained\",":"")+"\n\t"+
         "\"fpsDisplay\":"+(_struct.fpsDisplay?"true":"false")+","+(!_isExtends?"\"//\":\"Show Fps\",":"")+"\n\n\t"+
-        "\"fontDir\":\""+_struct.fontDir+"\","+(!_isExtends?"     \"//\":\"TTF (or) OTF supported\",":"")+"\n\t"+
+        "\"font\":\""+fontName+"\","+(!_isExtends?"        \"//\":\"Installed Font Name\",":"")+"\n\t"+
         "\"fontSize\":"+to_string(_struct.fontSize)+","+(!_isExtends?"    \"//\":\"Adjust according to your screen\",":"")+"\n\n\t"+
         "\"keyExit\":\""+(char) _struct.keyExit+"\","+(!_isExtends?"    \"//\":\"Exit Key       'q'\",":"")+"\n\t"+
         "\"keyPause\":\""+(char) _struct.keyPause+"\","+(!_isExtends?"    \"//\":\"Pause Key      'SPACE'\",":"")+"\n\t"+

@@ -22,7 +22,7 @@ typedef struct config{
     int fps = 60;
     bool fpsDisplay = true;
 
-    string fontDir = " ";
+    wchar_t* font = L"consolas";
     int fontSize = 16;
 
     char keyExit = 133;
@@ -31,7 +31,7 @@ typedef struct config{
 
     string fillModes[MAX_FILLMODES] = {
         "Ñ@#W$9876543210?!abc;:+=-,._ ",
-        ":$#$:   \"4b. ':.",
+        ":$#$:   \\\"4b. ':.",
         "██▓▓▒▒░░ ",
         "Mnx:.. "
     };

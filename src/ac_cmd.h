@@ -39,7 +39,7 @@ typedef struct ScreenBuffer{
 
 int ac_cmd_rangeMap(int value, int leftMin, int leftMax, int rightMin, int  rightMax);
 
-ScreenBuffer ac_cmd_createScreenBuffer(int width, int height, int writeAt_X, int writeAt_Y);
+ScreenBuffer ac_cmd_createScreenBuffer(int width, int height, int writeAt_X, int writeAt_Y, ac_cli_CONFIG globalConfig);
 bool ac_cmd_writeScreen(ScreenBuffer sb);
 void ac_cmd_setScreenActive(ScreenBuffer sb);
 
