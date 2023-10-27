@@ -22,11 +22,11 @@ typedef struct config{
     int fps = 60;
     bool fpsDisplay = true;
 
-    wchar_t* font = L"consolas";
+    wchar_t* font;
     int fontSize = 16;
 
-    char keyExit = 133;
-    char keyPause = 32;
+    char keyExit = 113;
+    char keyPause = 112;
     char keyScreenshot = 97;
 
     string fillModes[MAX_FILLMODES] = {

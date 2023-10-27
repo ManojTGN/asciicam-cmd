@@ -21,6 +21,10 @@
 #undef max
 #undef byte
 
+#include <cstring>
+#include <thread>
+#include <chrono>
+
 using namespace std;
 
 typedef struct ScreenBuffer{

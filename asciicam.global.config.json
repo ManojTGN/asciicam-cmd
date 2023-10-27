@@ -8,13 +8,13 @@
 	"font":"consolas",        "//":"Installed Font Name",
 	"fontSize":16,    "//":"Adjust according to your screen",
 
-	"keyExit":"�",    "//":"Exit Key       'q'",
-	"keyPause":" ",    "//":"Pause Key      'SPACE'",
+	"keyExit":"q",    "//":"Exit Key       'q'",
+	"keyPause":"p",    "//":"Pause Key      'p'",
 	"keyScreenshot":"a","//":"Screenshot Key 'a'",
 
 	"fillModes":[
 		"Ñ@#W$9876543210?!abc;:+=-,._ ",
-		":$#$:   \"4b. ':.",
+		":$#$:  \"4b. ':.",
 		"██▓▓▒▒░░ ",
 		"Mnx:.. "
 	],

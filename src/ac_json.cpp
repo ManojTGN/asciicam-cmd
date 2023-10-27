@@ -1,5 +1,11 @@
 #include "ac_json.h"
 
+
+void ac_json_setValue(string attribute, string value, ac_cli_CONFIG* globalConfig){
+
+}
+
+bool ac_json_isEscapeChar(char c){return (/*c==' '||*/c=='\r'||c=='\t'||c=='\n'||c=='\0');}
 ac_cli_CONFIG ac_json_parseFile(string fileDir){
 
     ac_cli_CONFIG configStruct;
@@ -7,12 +13,25 @@ ac_cli_CONFIG ac_json_parseFile(string fileDir){
     if(fileDir.find(".json") != fileDir.size() -5 )
         return configStruct;
 
-    FILE* configFile = fopen(fileDir.c_str(),"r");
+    ifstream configFile(fileDir);
     if(!configFile)
         return configStruct;
 
-    //@todo:    parse the json data and return it as `ac_cli_CONFIG` struct
-    //          for now it returns default config struct
+    configStruct.status = true;
+    return configStruct;
+
+    int _ifFound;
+    string line;string tLine = "";
+    while (getline(configFile, line)) {
+        line.erase(0,line.find_first_not_of(" \t\n\r\f\v"));
+        line.erase(remove_if(line.begin(), line.end(), ac_json_isEscapeChar),line.end());
+
+        if((_ifFound = line.find("\"//\"")) != string::npos)
+            line.replace(_ifFound, line.length() - _ifFound, " ");
+        tLine += line;
+    }
+    
+    cout<<tLine<<endl;
 
     configStruct.status = true;
     return configStruct;
@@ -32,7 +51,7 @@ string ac_json_parseStruct(ac_cli_CONFIG _struct, bool _isExtends){
         "\"font\":\""+fontName+"\","+(!_isExtends?"        \"//\":\"Installed Font Name\",":"")+"\n\t"+
         "\"fontSize\":"+to_string(_struct.fontSize)+","+(!_isExtends?"    \"//\":\"Adjust according to your screen\",":"")+"\n\n\t"+
         "\"keyExit\":\""+(char) _struct.keyExit+"\","+(!_isExtends?"    \"//\":\"Exit Key       'q'\",":"")+"\n\t"+
-        "\"keyPause\":\""+(char) _struct.keyPause+"\","+(!_isExtends?"    \"//\":\"Pause Key      'SPACE'\",":"")+"\n\t"+
+        "\"keyPause\":\""+(char) _struct.keyPause+"\","+(!_isExtends?"    \"//\":\"Pause Key      'p'\",":"")+"\n\t"+
         "\"keyScreenshot\":\""+(char) _struct.keyScreenshot+"\","+(!_isExtends?"\"//\":\"Screenshot Key 'a'\",":"")+"\n\n\t"+
         "\"fillModes\":[\n\t\t"
     ;
