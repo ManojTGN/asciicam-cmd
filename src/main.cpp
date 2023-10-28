@@ -19,10 +19,10 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    if(argc > 1 && !ac_cli_setParameters(argv, &globalConfig)){
+    if(argc > 1 && !ac_cli_setParameters(argv, argc, &globalConfig)){
         cout<<"WAR: Unable To Parse Some Parameters"<<endl;
     }
-
+    
     ac_cmd_renderLoop(globalConfig);
 
     getchar();

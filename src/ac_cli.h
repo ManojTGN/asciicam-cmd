@@ -4,6 +4,7 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <cstring>
 #include <fstream>
 #include <iostream>
 #include <stdbool.h>
@@ -22,7 +23,7 @@ typedef struct config{
     int fps = 60;
     bool fpsDisplay = true;
 
-    wchar_t* font;
+    wchar_t* font = NULL;
     int fontSize = 16;
 
     char keyExit = 113;
@@ -30,12 +31,13 @@ typedef struct config{
     char keyScreenshot = 97;
 
     string fillModes[MAX_FILLMODES] = {
+        "Mnx?:,.  "
         "Ñ@#W$9876543210?!abc;:+=-,._ ",
+        "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\\\|()1{}[]?-_+~<>i!lI;:,\\\"^`'.  ",
         ":$#$:   \\\"4b. ':.",
         "██▓▓▒▒░░ ",
-        "Mnx:.. "
     };
-    int fillModesSize = 4;
+    int fillModesSize = 5;
     int fillMode = 0;
 
     bool isExtends = false;
@@ -59,6 +61,6 @@ static map<string, string> ac_cli_CONFIG_TYPE = {
 
 bool ac_cli_isGlobalConfigExist(); /* Returns TRUE if Global Config File Exists else FALSE */
 ac_cli_CONFIG ac_cli_createGlobalConfig(bool force = true);  /* Create Global Config File and returns TRUE if created else FALSE */
-bool ac_cli_setParameters(char **argv, ac_cli_CONFIG *config);
+bool ac_cli_setParameters(char **argv, int argc, ac_cli_CONFIG *config);
 
 #endif /* CLI_H */

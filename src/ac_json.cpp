@@ -40,6 +40,11 @@ ac_cli_CONFIG ac_json_parseFile(string fileDir){
 
 string ac_json_parseStruct(ac_cli_CONFIG _struct, bool _isExtends){
 
+    if(_struct.font == NULL){
+        _struct.font = new wchar_t[wcslen(L"consolas")+1];
+        wcscpy_s(_struct.font , wcslen(L"consolas")+1, L"consolas");
+    }
+
     std::wstring wStr(1, *_struct.font);
     std::string fontName(wStr.begin(), wStr.end());
 

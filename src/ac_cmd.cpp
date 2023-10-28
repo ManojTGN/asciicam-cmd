@@ -88,14 +88,6 @@ void ac_cmd_getCamFrame(cv::Mat *frame, cv::VideoCapture vCapture){
 
 
 void ac_cmd_renderLoop(ac_cli_CONFIG globalConfig){
-    
-    //for developement will be removed on release
-    globalConfig.camera = 1;
-    globalConfig.fillMode = 3;
-    globalConfig.font = L"Jetbrain Mono Thin";
-    globalConfig.fontSize = 12;
-    globalConfig.fps = 60;
-    globalConfig.fpsDisplay = false;
 
     cv::VideoCapture vCapture(globalConfig.camera);
     //@todo: add resize to config to have customized resize value

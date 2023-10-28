@@ -12,10 +12,6 @@ all: $(BINS)
 clean:
 	rm -f ./build/*.o
 
-run: # only for testing will be removed on release
-	./build/asciicam.exe
-	rm ./*.json
-
 ac_cmd.o:
 	$(CC) -c ./src/ac_cmd.cpp -o ./build/ac_cmd.o -L$(CVLIB) -I$(CVINCLUDE) $(CVFLAGS)
 
