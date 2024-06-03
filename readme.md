@@ -1,6 +1,6 @@
 # AsciiCam CMD
 
-This C++ program captures frames from your webcam and converts them into ASCII art in real-time. and it will produce the output ascii art in the command prompt. You can customize the output, change cameras, add your own ASCII characters, and more.
+This C++ program captures frames from your webcam and converts them into ASCII art in real-time. and it will produce the output ascii art in the terminal. You can customize the output, change cameras, add your own ASCII characters, and more.
 ![Capture2](https://github.com/ManojTGN/asciicam-cmd/assets/42494649/1db71409-234b-4fb6-90fd-45cf70a67404)
 
 ## Prerequisites
